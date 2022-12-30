@@ -9,6 +9,7 @@ const validator = require("express-validator");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const categoryRoutes = require("./routes/category");
+const productRoutes = require("./routes/product");
 const port = 4000 || process.env.PORT;
 
 //middlewares
@@ -16,10 +17,12 @@ app.use(morgan("dev"));
 app.use(bodyparser.json());
 app.use(cookieParser());
 app.use(validator());
+
 //routes middleware
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
 
 app.listen(port, () => {
   console.log(`Server on port ${port}`);

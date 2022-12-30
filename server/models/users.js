@@ -7,19 +7,19 @@ const userSchmea = new mongoose.Schema(
     name: {
       type: String,
       trim: true,
-      require: true,
+      required: true,
       maxlength: 32,
     },
     email: {
       type: String,
       trim: true,
-      require: true,
+      required: true,
       unique: true,
     },
     hashed_password: {
       type: String,
       trim: true,
-      require: true,
+      required: true,
     },
     about: {
       type: String,

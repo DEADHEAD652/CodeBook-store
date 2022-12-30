@@ -8,6 +8,7 @@ require("./database/db");
 const validator = require("express-validator");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const categoryRoutes = require("./routes/category");
 const port = 4000 || process.env.PORT;
 
 //middlewares
@@ -18,6 +19,7 @@ app.use(validator());
 //routes middleware
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
 
 app.listen(port, () => {
   console.log(`Server on port ${port}`);

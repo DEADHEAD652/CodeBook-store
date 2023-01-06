@@ -9,6 +9,10 @@ const {
   read,
   remove,
   update,
+  list,
+  listRelated,
+  listCategories,
+  listBySearch,
 } = require("../controllers/product");
 const { userByID } = require("../controllers/user");
 
@@ -28,6 +32,10 @@ router.patch(
   isAuth,
   update
 );
+router.get("/products", list);
+router.get("/products/related/:productID", listRelated);
+router.get("/products/categories", listCategories);
+router.post("/products/by/search", listBySearch);
 
 router.param("userID", userByID);
 router.param("productID", productByID);

@@ -3,11 +3,14 @@ const router = express.Router();
 
 const { requireSignin, isAdmin, isAuth } = require("../controllers/auth");
 
-const { userByID } = require("../controllers/user");
+const { userByID, read, update } = require("../controllers/user");
 
 router.get("/secret/:userID", requireSignin, isAuth, isAdmin, (req, res) => {
   res.json({ user: req.profile });
 });
+
+router.get("/user/:userID", requireSignin, isAuth, read);
+router.put("/user/:userID", requireSignin, isAuth, update);
 
 router.param("userID", userByID);
 
